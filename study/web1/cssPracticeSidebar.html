@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* --- 노멀라이즈 시작 --- */
+        body, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;  /* ● 제거 */
+        }
+
+        a {
+            color: inherit;   /* 부모 엘리먼트의 값을 상속 */
+            text-decoration: none;  /* 밑줄 제거 */
+        }
+        /* --- 노멀라이즈 끝 --- */
+
+        /* 2차 이상의 메뉴 숨기기 */
+        .side-bar > ul ul {
+            display: none;
+        }
+
+        /* 사이트의 높이를 5000px로 만들어 스크롤 생성 */
+        body {
+            height: 5000px;
+        }
+
+        /* 사이드 바의 너비와 높이를 변수로 통제 */
+        :root {
+            --side-bar-width: 270px;
+            --side-bar-height: 90vh;
+        }
+
+        /*  */
+        .side-bar {
+            position: fixed;        /* 사이드바가 스크롤을 따라오도록 지정 */
+            background-color: aquamarine;
+            width: var(--side-bar-width);
+            min-height: var(--side-bar-height);     /* 사이드바의 높이를 전체 화면의 90% */
+            margin-top: calc((100vh - var(--side-bar-height)) /2);      /* 사이드바 위/아래 마진을 동일하게 지정 */
+        }
+
+        /* 모든 메뉴의 a에 속성 값을 부여 */
+        .side-bar ul > li > a {
+            display: block;
+            color: orangered;
+            font-size: 1.4rem;
+            font-weight: bold;
+            padding: 20px;
+            padding-left: 50px;
+        }
+
+        /* 자식의 position이 absolute일 때 자식을 영역 안에 가둔다. */
+        .side-bar > ul > li {
+            position: relative;
+        }
+
+        /* 모든 메뉴가 마우스 인식 시 반응 */
+        .side-bar ul > li:hover > a {
+            background-color: blue;
+        }
+
+        /* 1차 메뉴의 항목이 마우스를 인식하면 2차 메뉴 등장 */
+        .side-bar > ul > li:hover > ul {
+            display: block;
+            position: absolute;
+            background-color: aqua;
+            top: 0;         /* 2차 메뉴의 상단을 1차 메뉴의 상단에 고정 */
+            left: 100%;     /* 2차 메뉴를 1차 메뉴의 너비만큼 이동 */
+            width: 100%;    /* 1차 메뉴의 너비를 상속 */
+        }
+
+        /* 사이드바 이동시키기 */
+        .side-bar {
+            border-radius: 20px;
+            transform: translate(calc(var(--side-bar-width) * -0.8), 0); /* x축 이동, y축 고정 */
+            transition: .5s;
+        }
+
+        /* 마우스 인식하면 원래 위치로 이동 */
+        .side-bar:hover {
+            transform: translate(-20px, 0);
+        }
+
+    </style>
+</head>
+<body>
+    <p><a href="./cssStudy.html"> ← CSS Study로 돌아가기</a></p>
+    <h1>사이드바 연습</h1>
+    <aside class="side-bar">
+        <ul>
+            <li>
+                <a href="#">menu1</a>
+                <ul>
+                    <li><a href="#">text1</a></li>
+                    <li><a href="#">text2</a></li>
+                    <li><a href="#">text3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">menu2</a>
+                <ul>
+                    <li><a href="#">text1</a></li>
+                    <li><a href="#">text2</a></li>
+                    <li><a href="#">text3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">menu3</a>
+                <ul>
+                    <li><a href="#">text1</a></li>
+                    <li><a href="#">text2</a></li>
+                    <li><a href="#">text3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+</body>
+</html>
