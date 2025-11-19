@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/baseball.css">
+    <script src="JS/baseball.js" defer></script>
+    <title>숫자 야구</title>
+</head>
+<body>
+    <p><a href="../../index.html">Home</a> > <a href="../../study.html">Study</a> > <a href="../web.html">WEB</a> > <a href="../jsStudy.html">JavaScript</a> > JS 실습(숫자 야구)</p>
+    <header>
+        <h1>숫자 야구</h1>
+        <div>
+            <h3>게임 규칙</h3>
+        </div>
+        <div>
+            <p>
+                1. 비밀 숫자: 컴퓨터가 중복 없는 0 ~ 9 사이의 비밀 숫자 3자리를 정합니다.<br>
+                2. 숫자 추측하기: 플레이어는 비밀 숫자를 추측해서 제출합니다.<br>
+                3. 결과 확인하기: 스트라이크(S), 볼(B), 아웃(O)<br>
+                <ul>
+                    <li>스트라이크(S): 숫자와 자리가 모두 일치</li>
+                    <li>볼(B) : 숫자만 일치하고 자리는 다를 때</li>
+                    <li>아웃(O) : 해당 숫자가 하나도 없을 때</li>
+                </ul>
+                4. 추리하기: 결과를 바탕으로 비밀 숫자를 추리합니다.<br>
+                5. 승리: 9회 안에 비밀 숫자를 정확하게 맞히면 플레이어의 승리!
+            </p>
+        </div>
+    </header>
+    <main>
+        <form class="startForm">
+            <button class="startBtn" type="submit">Play Ball!</button>
+        </form>
+        <form class="playForm hidden">
+            <input class="inputNumber" type="text" required maxlength="3" placeholder="ex) 123">
+            <button class="submitNumber" type="submit">Pitch!</button>
+        </form>
+        <p class="result"></p>
+        <div class="log"></div>
+    </main>
+</body>
+</html>

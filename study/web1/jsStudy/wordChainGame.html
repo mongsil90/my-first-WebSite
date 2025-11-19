@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공포의 쿵쿵따</title>
+    <script src="JS/wordChainGame.js" defer></script>
+    <link rel="stylesheet" href="style/wordChainGame.css">
+</head>
+<body>
+    <p><a href="../../index.html">Home</a> > <a href="../../study.html">Study</a> > <a href="../web.html">WEB</a> > <a href="../jsStudy.html">JavaScript</a> > JS 실습(공포의 쿵쿵따)</p>
+    <header>
+        <h1 class="title">공포의 쿵쿵따</h1>
+    </header>
+    <main>
+        <form class="startForm">
+            <label for="headCount">참가 인원을 입력하세요 : </label>
+            <input class="headCount" name="headCount" type="number" required min="1">
+            <button class="startButton" type="submit">게임 시작!</button>
+        </form>
+
+        <form class="wordGameForm hidden">
+            <input class="wordInput" type="text" required maxlength="3" placeholder="3글자를 입력하세요.">
+            <button class="wordSubmit" type="submit">쿵쿵따</button>
+        </form>
+
+        <div class="users"></div>
+        <div class="userNumber"></div>
+        <div class="lastWords"></div>
+        <div class="gameOver"></div>
+    </main>
+</body>
+</html>
